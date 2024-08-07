@@ -1,0 +1,23 @@
+<div class="new-product-body">
+    <h1>New Project</h1>
+
+    <div class="project-description">Projects contain one or more graph database vendors. They're mean to separate the work from different teams when the 
+        same vendor may be used. For example, a sales team and product recommendation team likely use different neo4j instances. They belong in two separate projects.
+    </div>
+    <br>
+
+    <mat-form-field class="project-name-input">
+        <mat-label>Project Name</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="project-description-input">
+        <mat-label>Project Description (optional)</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-dialog-actions align="end">
+        <button class="modal-cancel" mat-button mat-dialog-close>Cancel</button>
+        <button class="modal-okay" mat-button [mat-dialog-close]="true">Add</button>
+    </mat-dialog-actions>
+</div>

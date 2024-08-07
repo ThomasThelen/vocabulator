@@ -1,0 +1,20 @@
+<mat-dialog-content>
+<h1>New Database Connection</h1>
+<br>
+<mat-form-field class="example-full-width">
+    <mat-label>Database Name</mat-label>
+    <input matInput [(ngModel)]="displayName">
+</mat-form-field>
+<br>
+<mat-divider></mat-divider>
+<mat-checkbox matTooltip="Check that the labels are in sync">Label Checking</mat-checkbox>
+<br>
+<mat-checkbox matTooltip="Check that the properties are in sync">Relation Checking</mat-checkbox>
+<br>
+<mat-checkbox matTooltip="Enable schema visualization">Visualization</mat-checkbox>
+
+
+<mat-dialog-actions align="end">
+    <button class="modal-cancel" mat-button mat-dialog-close>Cancel</button>
+    <button class="modal-okay" mat-button [mat-dialog-close]="true">Add</button>
+</mat-dialog-actions>

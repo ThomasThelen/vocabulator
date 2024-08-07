@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "api"
+version = "0.1.0"
+description = "API powering KGView"
+authors = ["ThomasThelen <tommythelen@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.111.1"
+uvicorn = "^0.30.3"
+pydantic-settings = "^2.3.4"
+sqlmodel = "^0.0.21"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.1"
+black = "^24.4.2"
+isort = "^5.13.2"
+mypy = "^1.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

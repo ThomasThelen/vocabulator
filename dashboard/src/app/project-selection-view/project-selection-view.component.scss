@@ -1,0 +1,48 @@
+.project-cards {
+    display: flex;
+    gap: 2rem;
+    margin-left: 15%;
+    margin-right: 15%;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    position: relative;
+    display: flex;
+    box-shadow: 0 3px 10px 0 #aaa;
+    height: 20rem;
+    position: relative;
+    width: 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    margin-left: .2rem;
+    margin-bottom: 1rem;
+}
+
+.project-add-icon {
+    font-size: 10rem;
+    color: green;
+}
+
+.project-card:hover {
+    transition: all .5s ease-in;
+    transform: scale(1.1);
+}
+
+.project-name {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    height: 25%;
+    width: 100%;
+    background-color: lightslategray;
+}
+
+.project-card .project-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+

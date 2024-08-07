@@ -1,0 +1,4 @@
+networks:
+  vocab_network:
+    name: vocab_network
+    driver: bridge

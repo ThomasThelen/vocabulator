@@ -27,7 +27,7 @@
 
 .project-card:hover {
     transition: all .5s ease-in;
-    transform: scale(1.1);
+    transform: scale(1.01);
 }
 
 .project-name {
@@ -46,3 +46,9 @@
     font-weight: bold;
   }
 
+.material-icons.delete-project {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}

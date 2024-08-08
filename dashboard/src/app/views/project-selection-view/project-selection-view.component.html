@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div class="project-cards">
+  <div class="project-card" *ngFor="let project of projects" [ngStyle]="{'background-image': 'url(/assets/project-backgrounds/'+project.image+')' }">
+    <mat-icon aria-hidden="false" aria-label="settings" fontIcon="settings" class="database-setting-icon" (click)="onUpdateProject(project.id, project.name)"></mat-icon>
+    <label class="project-name" (click)="onProjectSelected(project.id)">{{project.name}}</label>
+    <a (click)="onProjectDelete(project.id)" target="_self" class="material-icons delete-project" title="Delete">
+      <i class="material-icons delete-project">delete</i>
+    </a>
+
+  </div>
+  <div class="project-card" (click)="onNewProjectSelected()">
+    <mat-icon class="project-add-icon" aria-hidden="false" aria-label="add" fontIcon="add"></mat-icon>
+    <label class="project-name">New Project</label>
+  </div>
+</div>
+<app-footer></app-footer>

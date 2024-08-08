@@ -6,18 +6,18 @@
     </div>
     <br>
 
-    <mat-form-field class="project-name-input">
-        <mat-label>Project Name</mat-label>
-        <input matInput>
+    <mat-form-field class="project-name-input" >
+        <mat-label >Project Name</mat-label>
+        <input matInput [(ngModel)]="projectName">
     </mat-form-field>
     <br>
-    <mat-form-field class="project-description-input">
-        <mat-label>Project Description (optional)</mat-label>
-        <input matInput>
+    <mat-form-field class="project-description-input" >
+        <mat-label >Project Description (optional)</mat-label>
+        <input matInput [(ngModel)]="projectDescription">
     </mat-form-field>
 
     <mat-dialog-actions align="end">
         <button class="modal-cancel" mat-button mat-dialog-close>Cancel</button>
-        <button class="modal-okay" mat-button [mat-dialog-close]="true">Add</button>
+        <button class="modal-okay" mat-button [mat-dialog-close]="true" (click)="onSubmit()">Add</button>
     </mat-dialog-actions>
 </div>

@@ -1,10 +1,10 @@
-import { Component, inject, ViewChild } from '@angular/core';
-import { ApiService } from '../api.service';
-import { DbViewComponent } from '../db-view/db-view.component';
-import { NewDbConnectionComponent } from '../new-db-connection/new-db-connection.component';
-import { NewVendorComponent } from '../new-vendor/new-vendor.component';
-import {MatDialogModule, MatDialog, MatDialogRef} from '@angular/material/dialog'; 
+import { Component, ViewChild } from '@angular/core';
+import { DbViewComponent } from '../../views/db-view/db-view.component';
+import { NewDbConnectionComponent } from '../../modals/new-db-connection/new-db-connection.component';
+import { NewVendorComponent } from '../../modals/new-vendor/new-vendor.component';
+import { MatDialog } from '@angular/material/dialog'; 
 import { ActivatedRoute } from '@angular/router';
+import { VendorService } from 'src/app/services/vendor.service';
 
 @Component({
   selector: 'app-project-view',
@@ -13,11 +13,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectViewComponent {
 
-  title = 'KGView';
+  title = 'Vocabulator';
   selectedDatabase: string = "";
-  selectedVendor: string = "";
+  selectedVendor: number = 0
   databaseInformation = {
-    vendorName: '',
+    vendorId: 0,
     databaseName: ''
   }
   vendors: Array<any> = []
@@ -25,10 +25,9 @@ export class ProjectViewComponent {
   private dbViewComponent: any;
 
   expandedIndex = 0;
-  constructor(private apiService: ApiService, private dialog: MatDialog, private route: ActivatedRoute) {}
+  constructor(private apiService: VendorService, private dialog: MatDialog, private route: ActivatedRoute) {}
   
   ngOnInit() {
-    console.log("Getting vendor information")
     let projectId = this.route.snapshot.paramMap.get('id');
     this.apiService.GetVendors(Number(projectId)).subscribe(
       (response) => {
@@ -41,7 +40,7 @@ export class ProjectViewComponent {
         });
   }
 
-  onVendorSelect(vendor: string) {
+  onVendorSelect(vendor: number) {
     console.log("Vendor selected: " + vendor)
     this.selectedVendor = vendor;
   }
@@ -50,7 +49,7 @@ export class ProjectViewComponent {
     console.log("Database selected", databaseName)
     this.selectedDatabase = databaseName;
     this.databaseInformation = {
-      vendorName: this.selectedVendor,
+      vendorId: this.selectedVendor,
       databaseName: this.selectedDatabase
     }
     this.dbViewComponent.update(this.databaseInformation)
@@ -62,14 +61,15 @@ export class ProjectViewComponent {
 
   onNewDatabase() {
     console.log("New database selected")
-    let dialogRef = this.dialog.open(NewDbConnectionComponent, {
+    let dialogRef = this.dialog.open(NewDbConnectionComponent,
+      {
+      data: {vendorId: this.selectedVendor},
       height: '400px',
       width: '600px',
     });
   }
 
   onNewVendor () {
-    console.log("asd")
     let dialogRef = this.dialog.open(NewVendorComponent, {
       height: '400px',
       width: '600px',

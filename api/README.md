@@ -1,5 +1,7 @@
-# KGView API
+# Vocabulator API
 
-API powering the KWGView web application.
+API powering the Vocabulator web application.
 
 ## Running
+
+## Contributing

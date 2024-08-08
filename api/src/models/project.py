@@ -1,18 +1,11 @@
-import uuid
-from typing import List
-
-from pydantic import BaseModel
-
-from .vendor import Vendor
+from sqlmodel import Field, SQLModel
 
 
-class Project(BaseModel):
+class Project(SQLModel, table=True):
     """
     Class representing a Project, which has vendors (and hence databases) separate from
     other projects.
     """
-
+    id: int | None = Field(default=None, primary_key=True)
     name: str
-    id: int
-
-    image: str
+    image: str | None = Field(default=None)

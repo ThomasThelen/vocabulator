@@ -11,5 +11,3 @@ services:
       - POSTGRES_PASSWORD=pass
       - POSTGRES_USER=admin
       - POSTGRES_DB=vocabulator
-    networks:
-      - vocab_network

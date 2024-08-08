@@ -1,16 +1,11 @@
-import uuid
-from typing import List, Union
-
-from pydantic import BaseModel
-
-from .database import Database
+from sqlmodel import SQLModel, Field
 
 
-class Vendor(BaseModel):
+class Vendor(SQLModel, table=True):
     """
     Class representing a graph database vendor.
     """
-
+    id: int | None = Field(default=None, primary_key=True)
     name: str
-    id: int
-    databases: List[Union[Database]]
+    default: bool
+    project: int = Field(foreign_key="project.id")

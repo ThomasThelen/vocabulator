@@ -1,7 +1,7 @@
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 .PHONY: help start stop restart
 
-BUILD_FILES := docker-compose.yaml -f dashboard/docker-compose.yaml -f api/docker-compose.yaml -f mongo/docker-compose.yaml
+BUILD_FILES := docker-compose.yaml -f dashboard/docker-compose.yaml -f api/docker-compose.yaml -f postgres/docker-compose.yaml
 
 help:	## Show this help.
 	@sed -ne '/@sed/!s/## //p' $(MAKEFILE_LIST)

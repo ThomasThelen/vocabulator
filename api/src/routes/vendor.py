@@ -21,8 +21,8 @@ async def get_default_vendors() -> List[Vendor]:
     logging.info("Retrieving default database vendors from mongo")
 
     return [
-        Vendor(name="Neo4j", id=1, databases=[]),
-        Vendor(name="Memgraph", id=2, databases=[]),
+        Vendor(name="Neo4j", id=1, project=1, default=True),
+        Vendor(name="Memgraph", id=2, project=1, default=True),
     ]
 
 
@@ -34,16 +34,8 @@ async def get_current_vendors(project_id: int) -> List[Vendor]:
     :param project_id: The project id whose vendors are being retrieved
     """
     return [
-        Vendor(
-            name="Neo4j",
-            id=1,
-            databases=[Database(name="militant-map"), Database(name="test-tb")],
-        ),
-        Vendor(
-            name="Memgraph",
-            id=2,
-            databases=[Database(name="mem1"), Database(name="mem2")],
-        ),
+        Vendor(name="Neo4j", id=1, project=1, default=True),
+        Vendor(name="Memgraph", id=2, project=1, default=True),
     ]
 
 

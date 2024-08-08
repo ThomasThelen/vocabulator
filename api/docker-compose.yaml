@@ -11,6 +11,6 @@ services:
     volumes:
       - .:/app
     ports:
-      - 8080:8080
+      - "8080:8080"
     networks:
       - vocab_network
